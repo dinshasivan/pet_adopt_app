@@ -1,15 +1,18 @@
 import { Link } from "expo-router";
-import { Text, View, Image, Pressable } from "react-native";
+import { Text, View, Image, Pressable, } from "react-native";
 import Colors from "@/constants/Colors";
 
 export default function Index() {
   return (
-    <View>
+    <View style={{
+      backgroundColor:Colors.WHITE,
+      height:'100%'
+    }}>
       <Image
         source={require("../assets/images/login.png")}
         style={{
           width: "100%",
-          height: 500,
+          height: 350,
         }}
       />
       <View
@@ -51,10 +54,21 @@ export default function Index() {
             alignItems: "center",
           }}
         >
-          <Text style={{ color: "white", fontSize: 16, fontWeight: "bold" }}>
+          <Link href='/login'>
+          <Text 
+            style={{
+              fontSize: 20,
+              fontFamily: "outfit-medium",
+              textAlign: "center",
+              marginLeft:2,
+              color: "white", // Add this
+            }}
+          >
             Get Started
           </Text>
+          </Link>
         </Pressable>
+
       </View>
     </View>
   );

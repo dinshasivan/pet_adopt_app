@@ -2,10 +2,12 @@ import { useState } from "react";
 import { View, Text, TextInput, Pressable } from "react-native";
 import { useRouter } from "expo-router";
 
-export default function LoginScreen() {
+export default function SignUpScreen() {
   const router = useRouter();
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   return (
     <View
@@ -26,8 +28,25 @@ export default function LoginScreen() {
           color: "#333",
         }}
       >
-        Welcome Back!
+        Create an Account
       </Text>
+
+      {/* Full Name Input */}
+      <TextInput
+        style={{
+          height: 50,
+          width: "100%",
+          borderWidth: 1,
+          borderColor: "#ccc",
+          borderRadius: 12,
+          paddingHorizontal: 15,
+          marginBottom: 15,
+          backgroundColor: "#fff",
+        }}
+        placeholder="Full Name"
+        value={fullName}
+        onChangeText={setFullName}
+      />
 
       {/* Email Input */}
       <TextInput
@@ -41,7 +60,7 @@ export default function LoginScreen() {
           marginBottom: 15,
           backgroundColor: "#fff",
         }}
-        placeholder="Enter your email"
+        placeholder="Email Address"
         keyboardType="email-address"
         value={email}
         onChangeText={setEmail}
@@ -56,30 +75,34 @@ export default function LoginScreen() {
           borderColor: "#ccc",
           borderRadius: 12,
           paddingHorizontal: 15,
-          marginBottom: 10,
+          marginBottom: 15,
           backgroundColor: "#fff",
         }}
-        placeholder="Enter your password"
+        placeholder="Password"
         secureTextEntry
         value={password}
         onChangeText={setPassword}
       />
 
-      {/* Forgot Password */}
-      <Pressable onPress={() => router.push("/forgot-password")}>
-        <Text
-          style={{
-            color: "#007bff",
-            fontSize: 14,
-            alignSelf: "flex-end",
-            marginBottom: 20,
-          }}
-        >
-          Forgot Password?
-        </Text>
-      </Pressable>
+      {/* Confirm Password Input */}
+      <TextInput
+        style={{
+          height: 50,
+          width: "100%",
+          borderWidth: 1,
+          borderColor: "#ccc",
+          borderRadius: 12,
+          paddingHorizontal: 15,
+          marginBottom: 20,
+          backgroundColor: "#fff",
+        }}
+        placeholder="Confirm Password"
+        secureTextEntry
+        value={confirmPassword}
+        onChangeText={setConfirmPassword}
+      />
 
-      {/* Login Button */}
+      {/* Sign Up Button */}
       <Pressable
         style={{
           backgroundColor: "#007bff",
@@ -92,18 +115,18 @@ export default function LoginScreen() {
         onPress={() => router.push("/home")}
       >
         <Text style={{ color: "#fff", fontSize: 18, fontWeight: "bold" }}>
-          Login
+          Sign Up
         </Text>
       </Pressable>
 
-      {/* Sign Up Link */}
+      {/* Already have an account? Login */}
       <View style={{ flexDirection: "row", marginTop: 10 }}>
         <Text style={{ fontSize: 14, color: "#666" }}>
-          Don't have an account?
+          Already have an account?
         </Text>
-        <Pressable onPress={() => router.push("/signup")}>
+        <Pressable onPress={() => router.push("/login")}>
           <Text style={{ color: "#007bff", fontSize: 14, marginLeft: 5 }}>
-            Sign Up
+            Login
           </Text>
         </Pressable>
       </View>
