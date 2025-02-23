@@ -118,31 +118,8 @@ export default function Home() {
             </Text>
           </Pressable>
         </View>
-
-        {/* Get Started Button */}
-        <Pressable
-          style={{
-            padding: 14,
-            marginTop: 40,
-            backgroundColor: Colors.PRIMARY,
-            width: "100%",
-            borderRadius: 14,
-            alignItems: "center",
-          }}
-        >
-          <Link href="/login">
-            <Text
-              style={{
-                fontSize: 20,
-                fontFamily: "outfit-medium",
-                color: "white",
-              }}
-            >
-              Get Started
-            </Text>
-          </Link>
-        </Pressable>
       </View>
+      
     </ScrollView>
   );
 }

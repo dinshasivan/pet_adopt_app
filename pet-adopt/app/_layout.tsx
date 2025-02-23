@@ -13,7 +13,15 @@ export default function RootLayout() {
       <Stack.Screen name="index"  options={{
         headerShown:false
       }}/>
-      <Stack.Screen name="login" />
+      <Stack.Screen name="login/index" 
+      options={{
+        headerShown:false
+      }}/>
+       <Stack.Screen name="signup/index" 
+      options={{
+        headerShown:false
+      }}/>
+       {/* <Stack.Screen name="home/index" /> */}
     </Stack>
   )
 }
